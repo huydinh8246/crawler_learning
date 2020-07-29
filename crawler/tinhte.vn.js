@@ -18,7 +18,7 @@ const getHTML = async (url) => {
 
 //get link
 const main = async () => {
-  for (let page = 0; page < limit; page++) {
+  for (let page = 1; page < limit; page++) {
     url = `https://tuoitre.vn/timeline/3/trang-${page}.htm`
     let data = await pushData(url)
     console.log(data)
@@ -39,7 +39,6 @@ async function pushData (url) {
     try {
       let link = `${website}${elem.link}`
       let insertResponse = await getFeedData(link) 
-      console.log(link) 
       generatedResponse.push(insertResponse)
     } catch (error) {
       console.log('error'+ error);
